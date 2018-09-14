@@ -1,13 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct word_entry {
-  char *word;
-  int count;
-};
-
-typedef struct word_entry word_entry_t;
-
+#include "word_entry.h"
 
 word_entry_t* new_word_entry_t(char* word, int count) {
   word_entry_t* new_entry = (word_entry_t*)malloc(sizeof(word_entry_t));
