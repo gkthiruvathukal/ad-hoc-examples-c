@@ -1,14 +1,14 @@
-COMMON_OBJS = word_entry.o
+COMMON_OBJS = word_main.o word_entry.o
 
 CC=gcc
 
 CFLAGS=-g
 
-EXES=word_entry
+EXES=word_main
 
 all: $(EXES)
 
-word_count: $(COMMON_OBJS)
+word_main: $(COMMON_OBJS)
 
 clean:
 	rm -f $(EXES) *.o
