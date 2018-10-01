@@ -1,3 +1,14 @@
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+
 # Prerequisites
 *.d
 
@@ -51,7 +62,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# target executables
-#
-word_main
-
+# Targets to ignore
+square_root_tests
+square_root_app
