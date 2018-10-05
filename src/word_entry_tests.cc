@@ -24,6 +24,15 @@ TEST(WordEntry, Bump) {
     ASSERT_EQ(2, word_entry_count(word_entry2));
 }
 
+TEST(WordEntry, Accessors) {
+    word_entry_t* word_entry1 = word_entry_new("comp310", 0);
+    ASSERT_TRUE( strcmp(word_entry_get_word(word_entry1), "comp310") == 0);
+    ASSERT_EQ(0, word_entry_count(word_entry1));
+    word_entry_bump(word_entry1);
+    ASSERT_EQ(1, word_entry_count(word_entry1));
+}
+
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

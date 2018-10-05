@@ -18,6 +18,7 @@ extern void word_entry_print(word_entry_t* word_entry);
 extern void word_entry_dispose(word_entry_t* word_entry);
 extern void word_entry_bump(word_entry_t* word_entry);
 extern int word_entry_count(word_entry_t* word_entry);
+extern char* word_entry_get_word(word_entry_t* word_entry);
 
 #endif
 

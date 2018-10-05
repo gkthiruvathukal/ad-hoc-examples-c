@@ -32,3 +32,8 @@ int word_entry_count(word_entry_t* word_entry) {
     assert (word_entry != NULL);
     return word_entry->count;
 }
+
+char* word_entry_get_word(word_entry_t* word_entry) {
+    assert (word_entry != NULL);
+    return word_entry->word;
+}
