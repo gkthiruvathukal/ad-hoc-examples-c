@@ -3,8 +3,8 @@
 #include <gtest/gtest.h>
 
 #include "word_entry.h"
- 
-TEST(WordEntry, Allocate) { 
+
+TEST(WordEntry, Allocate) {
     word_entry_t* word_entry1 = word_entry_new("comp310", 0);
     word_entry_t* word_entry2 = word_entry_new("comp410", 0);
     ASSERT_TRUE(word_entry1 != NULL);
@@ -12,7 +12,7 @@ TEST(WordEntry, Allocate) {
     ASSERT_EQ(word_entry1->count, 0);
     ASSERT_EQ(word_entry2->count, 0);
 }
- 
+
 TEST(WordEntry, Bump) {
     word_entry_t* word_entry1 = word_entry_new("comp310", 0);
     word_entry_t* word_entry2 = word_entry_new("comp410", 0);
