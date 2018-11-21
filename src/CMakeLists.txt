@@ -17,8 +17,8 @@ add_executable(word_main word_main.cc word_entry.cc)
 add_executable(word_entry_tests word_entry_tests.cc word_entry.cc)
 target_link_libraries(word_entry_tests ${GTEST_LIBRARIES} pthread)
 
-add_executable(word_entry_tests2 word_entry_tests2.cc word_entry.cc)
-target_link_libraries(word_entry_tests2 ${GTEST_LIBRARIES} pthread)
+add_executable(word_entry_dry_tests word_entry_dry_tests.cc word_entry.cc)
+target_link_libraries(word_entry_dry_tests ${GTEST_LIBRARIES} pthread)
 
 add_executable(llnl1 llnl1.c)
 target_link_libraries(llnl1 pthread)
