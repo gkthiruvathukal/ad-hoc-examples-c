@@ -38,3 +38,5 @@ target_link_libraries(llnl2 pthread)
 
 add_executable(llnl_cv1 llnl_cv1.c)
 target_link_libraries(llnl_cv1 pthread)
+
+add_executable(strbuffer_demo strbuffer_demo.c strbuffer.c)
