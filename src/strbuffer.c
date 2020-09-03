@@ -4,19 +4,31 @@
 #include <string.h>
 #include <stdlib.h>
 
+/* constructor */
 void strbuffer_init(strbuffer_t* buffer, int capacity, int increment) {
     if (capacity < MIN_CAPACITY)
-        buffer->capacity = MIN_CAPACITY;
-    else buffer->capacity = capacity;
+        buffer->initial_capacity = MIN_CAPACITY;
+    else buffer->initial_capacity = capacity;
 
     if (increment < MIN_INCREMENT)
         buffer->increment = MIN_INCREMENT;
     else buffer->increment = increment;
 
+    buffer->capacity = buffer->initial_capacity;
     buffer->data = (char*) malloc(buffer->capacity * sizeof(char));
     buffer->pos = 0;
 }
 
+/* use this to reset an existing strbuffer_t */
+
+void strbuffer_reset(strbuffer_t *buffer) {
+    buffer->capacity = buffer->initial_capacity;
+    buffer->data = (char*) realloc(buffer->data, buffer->capacity * sizeof(char));
+    buffer->pos=0;
+}
+
+/* this is only used internally; however, it is safe to use by
+ * any caller. ensures at least one more character can be added */
 
 void strbuffer_resize_if_needed(strbuffer_t* buffer) {
     if (buffer->pos < buffer->capacity)
@@ -39,11 +51,6 @@ char* strbuffer_tostring(strbuffer_t* buffer) {
     repr[buffer->pos] = 0;
     return repr;
 }
-
-void strbuffer_reset(strbuffer_t *buffer) {
-    buffer->pos=0;
-}
-
 
 char* strbuffer_getline(strbuffer_t* buffer, int *eof) {
     int c;

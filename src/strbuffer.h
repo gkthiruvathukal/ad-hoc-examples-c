@@ -5,6 +5,7 @@
 
 typedef struct _strbuffer_t {
     char* data;
+    int initial_capacity;
     int capacity;
     int increment;
     int pos;
