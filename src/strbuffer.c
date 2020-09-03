@@ -23,7 +23,7 @@ void strbuffer_resize_if_needed(strbuffer_t* buffer) {
         return;
 
     int new_capacity = buffer->capacity + buffer->increment;
-    printf("Resizing to %d\n", new_capacity);
+    //printf("Resizing to %d\n", new_capacity);
     buffer->data = (char*) realloc(buffer->data, new_capacity * sizeof(char));
     buffer->capacity = new_capacity;
 }
@@ -43,3 +43,19 @@ char* strbuffer_tostring(strbuffer_t* buffer) {
 void strbuffer_reset(strbuffer_t *buffer) {
     buffer->pos=0;
 }
+
+
+char* strbuffer_getline(strbuffer_t* buffer, int *eof) {
+    int c;
+    *eof = 0;
+    strbuffer_reset(buffer);
+    for(;;) {
+        c = getchar();
+        if (c == '\n' || c == '\r' || c == 0 || c == EOF)
+            break;
+        strbuffer_append(buffer, c);
+    }
+    if (c == EOF) *eof = 1;
+    return  strbuffer_tostring(buffer);
+}
+

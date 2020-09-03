@@ -40,3 +40,5 @@ add_executable(llnl_cv1 llnl_cv1.c)
 target_link_libraries(llnl_cv1 pthread)
 
 add_executable(strbuffer_demo strbuffer_demo.c strbuffer.c)
+
+add_executable(getline_demo getline_demo.c strbuffer.c)
